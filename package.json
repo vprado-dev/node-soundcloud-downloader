@@ -8,7 +8,6 @@
     "dist/**/*"
   ],
   "scripts": {
-    "docs": "typedoc --out docs ./src --excludeInternal; touch ./docs/.nojekyll",
     "build": "tsc",
     "publish-script": "./publish.sh",
     "prepublishOnly": "rm -rf dist && yarn build",
@@ -30,22 +29,15 @@
   "author": "Zack Radisic",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.10.3",
     "axios": "^0.21.0",
     "dotenv": "^8.2.0",
     "m3u8stream": "^0.8.0",
     "soundcloud-key-fetch": "^1.0.10"
   },
-  "typings": "./index.d.ts",
   "devDependencies": {
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.2",
-    "@babel/plugin-transform-runtime": "^7.10.3",
-    "@babel/preset-env": "^7.10.2",
     "@typescript-eslint/eslint-plugin": "^3.5.0",
     "@typescript-eslint/parser": "^3.5.0",
     "axios-mock-adapter": "^1.18.1",
-    "babel-watch": "^7.0.0",
     "eslint": "^7.3.1",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
@@ -56,7 +48,6 @@
     "file-type": "^14.6.2",
     "jest": "^26.0.1",
     "music-metadata": "^7.6.6",
-    "typedoc": "^0.20.20",
     "typescript": "^4.0.2"
   }
 }
