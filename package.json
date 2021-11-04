@@ -25,7 +25,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/zackradisic/node-soundcloud-downloader"
+    "url": "https://github.com/vprado-dev/node-soundcloud-downloader"
   },
   "author": "Zack Radisic",
   "license": "MIT",
