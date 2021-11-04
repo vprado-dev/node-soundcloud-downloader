@@ -8,4 +8,3 @@ jest.config.js
 jest.setup.js
 publish.sh
 .eslintrc.js
-.babelrc
