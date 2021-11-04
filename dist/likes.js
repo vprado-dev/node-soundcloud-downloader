@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.getLikes = void 0;
 var util_1 = require("./util");
 var baseURL = 'https://api-v2.soundcloud.com/users/';
@@ -52,10 +52,10 @@ var getLikes = function (options, clientID, axiosInstance) { return __awaiter(vo
                         options.limit = -1;
                     if (!options.offset)
                         options.offset = 0;
-                    u = util_1.appendURL("https://api-v2.soundcloud.com/users/" + options.id + "/likes", 'client_id', clientID, 'limit', '' + (options.limit === -1 ? 200 : options.limit), 'offset', '' + options.offset);
+                    u = (0, util_1.appendURL)("https://api-v2.soundcloud.com/users/" + options.id + "/likes", 'client_id', clientID, 'limit', '' + (options.limit === -1 ? 200 : options.limit), 'offset', '' + options.offset);
                 }
                 else {
-                    u = util_1.appendURL(options.nextHref, 'client_id', clientID);
+                    u = (0, util_1.appendURL)(options.nextHref, 'client_id', clientID);
                 }
                 nextHref = 'start';
                 _b.label = 1;
@@ -70,7 +70,7 @@ var getLikes = function (options, clientID, axiosInstance) { return __awaiter(vo
                 if (query.collection.length === 0)
                     return [2 /*return*/, data];
                 if (query.collection[0].kind !== 'like')
-                    throw util_1.kindMismatchError('like', query.collection[0].kind);
+                    throw (0, util_1.kindMismatchError)('like', query.collection[0].kind);
                 // Only add tracks (for now)
                 query.collection = query.collection.reduce(function (prev, curr) { return curr.track ? prev.concat(curr) : prev; }, []);
                 if (!response) {
@@ -92,7 +92,7 @@ var getLikes = function (options, clientID, axiosInstance) { return __awaiter(vo
                         url.searchParams.set('limit', '' + options.limit);
                         nextHref = url.toString();
                     }
-                    u = util_1.appendURL(nextHref, 'client_id', clientID);
+                    u = (0, util_1.appendURL)(nextHref, 'client_id', clientID);
                 }
                 return [3 /*break*/, 1];
             case 3: return [2 /*return*/, response];
@@ -100,3 +100,4 @@ var getLikes = function (options, clientID, axiosInstance) { return __awaiter(vo
     });
 }); };
 exports.getLikes = getLikes;
+//# sourceMappingURL=likes.js.map

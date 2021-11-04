@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.downloadPlaylist = void 0;
 var download_1 = require("./download");
 var info_1 = require("./info");
@@ -43,12 +43,12 @@ var downloadPlaylist = function (url, clientID, axiosInstance) { return __awaite
     var info, trackNames, result;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, info_1.getSetInfo(url, clientID, axiosInstance)];
+            case 0: return [4 /*yield*/, (0, info_1.getSetInfo)(url, clientID, axiosInstance)];
             case 1:
                 info = _a.sent();
                 trackNames = [];
                 return [4 /*yield*/, Promise.all(info.tracks.map(function (track) {
-                        var p = download_1.download(track.permalink_url, clientID, axiosInstance);
+                        var p = (0, download_1.download)(track.permalink_url, clientID, axiosInstance);
                         trackNames.push(track.title);
                         return p;
                     }))];
@@ -59,3 +59,4 @@ var downloadPlaylist = function (url, clientID, axiosInstance) { return __awaite
     });
 }); };
 exports.downloadPlaylist = downloadPlaylist;
+//# sourceMappingURL=download-playlist.js.map

@@ -1,13 +1,17 @@
 {
-  "name": "soundcloud-downloader",
+  "name": "@vncsprd/soundcloud-downloader",
   "version": "1.0.0",
   "description": "Download Soundcloud audio with Node.js",
   "main": "index.js",
   "types": "./index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "docs": "typedoc --out docs ./src --excludeInternal; touch ./docs/.nojekyll",
-    "build": "npx tsc src/*.ts --outDir dist --esModuleInterop",
+    "build": "tsc",
     "publish-script": "./publish.sh",
+    "prepublishOnly": "rm -rf dist && yarn build",
     "test": "jest --runInBand"
   },
   "keywords": [

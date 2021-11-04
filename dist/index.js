@@ -57,7 +57,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.create = exports.SCDL = void 0;
 var soundcloud_key_fetch_1 = __importDefault(require("soundcloud-key-fetch"));
 var info_1 = __importStar(require("./info"));
@@ -78,13 +78,13 @@ var downloadFormat = function (url, clientID, format, axiosInstance) { return __
     var info, filtered;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, info_1["default"](url, clientID, axiosInstance)];
+            case 0: return [4 /*yield*/, (0, info_1.default)(url, clientID, axiosInstance)];
             case 1:
                 info = _a.sent();
-                filtered = filter_media_1["default"](info.media.transcodings, { format: format });
+                filtered = (0, filter_media_1.default)(info.media.transcodings, { format: format });
                 if (filtered.length === 0)
                     throw new Error("Could not find media with specified format: (" + format + ")");
-                return [4 /*yield*/, download_1.fromMediaObj(filtered[0], clientID, axiosInstance)];
+                return [4 /*yield*/, (0, download_1.fromMediaObj)(filtered[0], clientID, axiosInstance)];
             case 2: return [2 /*return*/, _a.sent()];
         }
     });
@@ -108,7 +108,7 @@ var SCDL = /** @class */ (function () {
             this.setAxiosInstance(options.axiosInstance);
         }
         else {
-            this.setAxiosInstance(axios_1["default"]);
+            this.setAxiosInstance(axios_1.default);
         }
         if (!options.stripMobilePrefix)
             options.stripMobilePrefix = true;
@@ -124,7 +124,7 @@ var SCDL = /** @class */ (function () {
      * @returns An array of Transcodings that match the predicate object
      */
     SCDL.prototype.filterMedia = function (media, predicateObj) {
-        return filter_media_1["default"](media, predicateObj);
+        return (0, filter_media_1.default)(media, predicateObj);
     };
     /**
      * Get the audio of a given track. It returns the first format found.
@@ -182,7 +182,7 @@ var SCDL = /** @class */ (function () {
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
-                        _a = info_1["default"];
+                        _a = info_1.default;
                         return [4 /*yield*/, this.prepareURL(url)];
                     case 1:
                         _b = [_c.sent()];
@@ -318,12 +318,12 @@ var SCDL = /** @class */ (function () {
                         return [3 /*break*/, 8];
                     case 5:
                         if (!options.nextHref) return [3 /*break*/, 7];
-                        return [4 /*yield*/, likes_1.getLikes(options, clientID, this.axios)];
+                        return [4 /*yield*/, (0, likes_1.getLikes)(options, clientID, this.axios)];
                     case 6: return [2 /*return*/, _b.sent()];
                     case 7: throw new Error('options.id or options.profileURL must be provided.');
                     case 8:
                         options.id = id;
-                        return [2 /*return*/, likes_1.getLikes(options, clientID, this.axios)];
+                        return [2 /*return*/, (0, likes_1.getLikes)(options, clientID, this.axios)];
                 }
             });
         });
@@ -360,28 +360,28 @@ var SCDL = /** @class */ (function () {
      * @param url - URL of the Soundcloud track
     */
     SCDL.prototype.isValidUrl = function (url) {
-        return url_1["default"](url, this.convertFirebaseLinks, this.stripMobilePrefix);
+        return (0, url_1.default)(url, this.convertFirebaseLinks, this.stripMobilePrefix);
     };
     /**
      * Returns whether or not the given URL is a valid playlist SoundCloud URL
      * @param url - The URL to check
      */
     SCDL.prototype.isPlaylistURL = function (url) {
-        return url_1.isPlaylistURL(url);
+        return (0, url_1.isPlaylistURL)(url);
     };
     /**
      * Returns true if the given URL is a personalized track URL. (of the form https://soundcloud.com/discover/sets/personalized-tracks::user-sdlkfjsldfljs:847104873)
      * @param url - The URL to check
      */
     SCDL.prototype.isPersonalizedTrackURL = function (url) {
-        return url_1.isPersonalizedTrackURL(url);
+        return (0, url_1.isPersonalizedTrackURL)(url);
     };
     /**
      * Returns true if the given URL is a Firebase URL (of the form https://soundcloud.app.goo.gl/XXXXXXXX)
      * @param url - The URL to check
      */
     SCDL.prototype.isFirebaseURL = function (url) {
-        return url_1.isFirebaseURL(url);
+        return (0, url_1.isFirebaseURL)(url);
     };
     SCDL.prototype.getClientID = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -414,7 +414,7 @@ var SCDL = /** @class */ (function () {
                         c = _c.sent();
                         if (!!c) return [3 /*break*/, 3];
                         _a = this;
-                        return [4 /*yield*/, soundcloud_key_fetch_1["default"].fetchKey()];
+                        return [4 /*yield*/, soundcloud_key_fetch_1.default.fetchKey()];
                     case 2:
                         _a._clientID = _c.sent();
                         data = {
@@ -432,7 +432,7 @@ var SCDL = /** @class */ (function () {
                     case 4: return [3 /*break*/, 7];
                     case 5:
                         _b = this;
-                        return [4 /*yield*/, soundcloud_key_fetch_1["default"].fetchKey()];
+                        return [4 /*yield*/, soundcloud_key_fetch_1.default.fetchKey()];
                     case 6:
                         _b._clientID = _c.sent();
                         _c.label = 7;
@@ -498,10 +498,10 @@ var SCDL = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         if (this.stripMobilePrefix)
-                            url = url_1.stripMobilePrefix(url);
+                            url = (0, url_1.stripMobilePrefix)(url);
                         if (!this.convertFirebaseLinks) return [3 /*break*/, 2];
-                        if (!url_1.isFirebaseURL(url)) return [3 /*break*/, 2];
-                        return [4 /*yield*/, url_1.convertFirebaseURL(url, this.axios)];
+                        if (!(0, url_1.isFirebaseURL)(url)) return [3 /*break*/, 2];
+                        return [4 /*yield*/, (0, url_1.convertFirebaseURL)(url, this.axios)];
                     case 1:
                         url = _a.sent();
                         _a.label = 2;
@@ -520,4 +520,5 @@ var create = function (options) { return new SCDL(options); };
 exports.create = create;
 scdl.STREAMING_PROTOCOLS = protocols_1._PROTOCOLS;
 scdl.FORMATS = formats_1._FORMATS;
-exports["default"] = scdl;
+exports.default = scdl;
+//# sourceMappingURL=index.js.map

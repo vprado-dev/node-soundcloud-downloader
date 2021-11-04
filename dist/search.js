@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.related = exports.search = void 0;
 var util_1 = require("./util");
 /** @internal */
@@ -55,12 +55,12 @@ var search = function (options, axiosInstance, clientID) { return __awaiter(void
                 if (!options.resourceType)
                     options.resourceType = 'tracks';
                 if (options.nextHref) {
-                    url = util_1.appendURL(options.nextHref, 'client_id', clientID);
+                    url = (0, util_1.appendURL)(options.nextHref, 'client_id', clientID);
                 }
                 else if (options.query) {
                     if (!validResourceTypes.includes(options.resourceType))
                         throw new Error(options.resourceType + " is not one of " + validResourceTypes.map(function (str) { return "'" + str + "'"; }).join(', '));
-                    url = util_1.appendURL("" + baseURL + (options.resourceType === 'all' ? '' : "/" + options.resourceType), 'client_id', clientID, 'q', options.query, 'limit', '' + options.limit, 'offset', '' + options.offset);
+                    url = (0, util_1.appendURL)("" + baseURL + (options.resourceType === 'all' ? '' : "/" + options.resourceType), 'client_id', clientID, 'q', options.query, 'limit', '' + options.limit, 'offset', '' + options.offset);
                 }
                 else {
                     throw new Error('One of options.query or options.nextHref is required');
@@ -81,7 +81,7 @@ var related = function (id, limit, offset, axiosInstance, clientID) {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axiosInstance.get(util_1.appendURL("https://api-v2.soundcloud.com/tracks/" + id + "/related", 'client_id', clientID, 'offset', '' + offset, 'limit', '' + limit))];
+                case 0: return [4 /*yield*/, axiosInstance.get((0, util_1.appendURL)("https://api-v2.soundcloud.com/tracks/" + id + "/related", 'client_id', clientID, 'offset', '' + offset, 'limit', '' + limit))];
                 case 1:
                     data = (_a.sent()).data;
                     return [2 /*return*/, data];
@@ -90,3 +90,4 @@ var related = function (id, limit, offset, axiosInstance, clientID) {
     });
 };
 exports.related = related;
+//# sourceMappingURL=search.js.map
